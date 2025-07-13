@@ -1,3 +1,4 @@
+import CurrentWeather from "@/components/current-weather";
 import WeatherSkeleton from "@/components/loading-skeleton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -101,6 +102,14 @@ const WeatherDashboard = () => {
 						className={`h-4 w-4 ${weatherQuery.isRefetching ? "animate-spin" : ""}`}
 					/>
 				</Button>
+			</div>
+
+			<div className="grid gap-6">
+				<div>
+					<CurrentWeather data={weatherQuery.data} locationName={locationName} />
+				</div>
+
+				<div></div>
 			</div>
 		</div>
 	);
