@@ -9,7 +9,7 @@ interface CurrentWeatherProps {
 
 const CurrentWeather = ({ data, locationName }: CurrentWeatherProps) => {
 	const {
-		weather: [CurrentWeather],
+		weather: [currentWeather],
 		main: { temp, feels_like, temp_min, temp_max, humidity },
 		wind: { speed },
 	} = data;
@@ -77,7 +77,12 @@ const CurrentWeather = ({ data, locationName }: CurrentWeatherProps) => {
 
 						<div>
 							<div>
-								<img src="" alt="" />
+								<img src={`https://openweathermap.org/img/wn/${currentWeather.icon}@4x.png`} alt="" />
+								<div className="absolute bottom-0 text-center">
+									<p className="text-sm font-medium capitalize">
+										{currentWeather.description}
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>
